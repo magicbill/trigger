@@ -1,14 +1,24 @@
 import datetime
 
-def print1():
-  while(True):
-    print 1
-    yield datetime.datetime.now() + datetime.timedelta(seconds=1)
+class Print10(object):
+  def __iter__(self):
+    return self
 
-def print5():
-  while(True):
+  def next(self, last):
+    return last + datetime.timedelta(seconds=10)
+
+  def execute(self):
+    print 10
+
+class Print5(object):
+  def __iter__(self):
+    return self
+
+  def next(self, _):
+    return datetime.timedelta(seconds=5)
+
+  def execute(self):
     print 5
-    yield datetime.timedelta(seconds=5)
 
 def get_triggers():
-  return [print1(), print5()]
+  return [Print10(), Print5()]
