@@ -1,0 +1,14 @@
+# Trigger
+
+Trigger is a modern task/job scheduler (cron replacement) written in Python.
+
+## Features (eventually)
+
+1. Daemon to replace cron.
+2. Jobs are specified as generators that yield a datetime or timedelta for when they should run next.
+3. State is saved so that Trigger can continue running generators from where they left off.
+4. User-level configuration.
+
+## Status
+
+This is a prototype implementation. There is not yet built-in daemon functionality and the state is not currently saved. There is no advanced configuration.  To add/remove jobs, you must edit the list returned by the ```get_triggers``` function in ```samples.py```.
